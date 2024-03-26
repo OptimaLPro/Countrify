@@ -8,7 +8,7 @@ const requestCountries = async () => {
 
         data.forEach(country => {
             const countryLink = document.createElement('a');
-            countryLink.href = '#';
+            countryLink.href = `details.html?name=${encodeURIComponent(country.name.common)}`; // Include country name as query parameter
             countryLink.classList.add('country', 'scale-effect');
             countryLink.dataset.countryName = country.name.common;
 

@@ -35,6 +35,7 @@ body {
 }
 
 @media (min-width: 64em) {
+
   .country-flag,
   .country-info {
     flex: 1 0 calc(50% - 30px);
@@ -93,28 +94,28 @@ body {
 }
 
 @media (min-width: 40em) {
-  .country-info > .col-2 {
+  .country-info>.col-2 {
     display: flex;
     align-items: flex-start;
     gap: 140px;
   }
 }
 
-.country-info > .col-2 .col-2 {
+.country-info>.col-2 .col-2 {
   margin: 40px 0;
 }
 
 @media (min-width: 40em) {
-  .country-info > .col-2 .col-2 {
+  .country-info>.col-2 .col-2 {
     margin: 0;
   }
 }
 
-.country-info > .col-2 li {
+.country-info>.col-2 li {
   margin-bottom: 15px;
 }
 
-.country-info > .col-3 {
+.country-info>.col-3 {
   display: flex;
   align-items: center;
   gap: 15px;
@@ -122,14 +123,92 @@ body {
 }
 
 @media (min-width: 40em) {
-  .country-info > .col-3 {
+  .country-info>.col-3 {
     margin-top: 35px;
   }
 }
 
-.country-info > .col-3 ul {
+.country-info>.col-3 ul {
   display: inherit;
   align-items: inherit;
   gap: 8px;
   flex-wrap: wrap;
+}
+
+
+/* Country info */
+
+.country-info {
+  display: flex;
+  flex-direction: row;
+  /* gap: 30px;
+  padding: 50px;
+  margin-left: 50px; */
+}
+
+.country-info-text {
+  padding: 50px;
+
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  padding-left: 1.875rem;
+}
+
+.div1 {
+  grid-area: 1 / 1 / 4 / 3;
+  /* width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; */
+margin: auto;
+  
+}
+
+.div1 img {
+  height: 400px;
+  /* object-fit: cover; */
+  /* border-radius: 10px; */
+}
+
+.div2 {
+  grid-area: 1 / 3 / 2 / 5;
+  display: flex;
+  margin-top: 10%;/* Align content to the end of div2 */
+}
+
+
+.div3 {
+  grid-area: 2 / 3 / 3 / 4;
+}
+
+.div4 {
+  grid-area: 2 / 4 / 3 / 5;
+}
+
+.div5 {
+  grid-area: 3 / 3 / 4 / 5;
+}
+
+.span-info {
+  font-weight: 600;
+
+}
+
+.div-span-info {
+  /* display: flex;
+  justify-content: center; */
+  margin-bottom: 10px;
+  font-weight: 500;
+  
+}
+
+.border-div{
+  margin-top: 70px;
 }
