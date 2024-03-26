@@ -1,8 +1,8 @@
+// Function to fetch and display countries
 const requestCountries = async () => {
     try {
         const response = await fetch('https://restcountries.com/v3.1/all');
         const data = await response.json();
-        console.log(data);
         
         const countriesGrid = document.querySelector('.countries-grid');
 
@@ -48,4 +48,25 @@ const requestCountries = async () => {
     }
 };
 
+// Initial request to fetch and display countries
 requestCountries();
+
+
+
+// Event listener for input events on the search input
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.querySelector('.search-input');
+
+    console.log(searchInput);
+
+    searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.trim().toLowerCase(); // Trim and convert to lowercase
+        const countries = document.querySelectorAll('.country');
+
+        countries.forEach(country => {
+            const countryName = country.dataset.countryName.toLowerCase();
+            const shouldDisplay = countryName.includes(searchTerm);
+            country.style.display = shouldDisplay ? 'block' : 'none';
+        });
+    });
+});
