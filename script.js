@@ -92,9 +92,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.querySelector('.theme-toggle');
     const body = document.body;
 
-    themeToggle.addEventListener('click', () => {
+    // Check if the theme preference is stored in local storage
+    const isDarkTheme = localStorage.getItem('darkTheme') === 'true';
+    if (isDarkTheme) {
+        body.classList.add('dark-theme');
+    }
+
+    // Function to toggle the dark theme and update local storage
+    const toggleDarkTheme = () => {
         body.classList.toggle('dark-theme');
         const themeText = document.querySelector('.theme-text');
         themeText.textContent = body.classList.contains('dark-theme') ? 'Light Mode' : 'Dark Mode';
-    });
+
+        // Update theme preference in local storage
+        localStorage.setItem('darkTheme', body.classList.contains('dark-theme'));
+    };
+
+    themeToggle.addEventListener('click', toggleDarkTheme);
+
 });
