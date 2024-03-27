@@ -3,7 +3,7 @@ const requestCountries = async () => {
     try {
         const response = await fetch('https://restcountries.com/v3.1/all');
         const data = await response.json();
-        
+
         const countriesGrid = document.querySelector('.countries-grid');
 
         data.forEach(country => {
@@ -11,6 +11,7 @@ const requestCountries = async () => {
             countryLink.href = `details.html?name=${encodeURIComponent(country.name.common)}`; // Include country name as query parameter
             countryLink.classList.add('country', 'scale-effect');
             countryLink.dataset.countryName = country.name.common;
+            countryLink.dataset.region = country.region.toLowerCase(); // Store region data for filtering
 
             const countryFlag = document.createElement('div');
             countryFlag.classList.add('country-flag');
@@ -51,13 +52,9 @@ const requestCountries = async () => {
 // Initial request to fetch and display countries
 requestCountries();
 
-
-
 // Event listener for input events on the search input
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.querySelector('.search-input');
-
-    console.log(searchInput);
 
     searchInput.addEventListener('input', () => {
         const searchTerm = searchInput.value.trim().toLowerCase(); // Trim and convert to lowercase
@@ -68,5 +65,36 @@ document.addEventListener('DOMContentLoaded', () => {
             const shouldDisplay = countryName.includes(searchTerm);
             country.style.display = shouldDisplay ? 'block' : 'none';
         });
+    });
+
+    const dropdownHeader = document.querySelector('.dropdown-header');
+    const dropdownBody = document.querySelector('.dropdown-body');
+
+    dropdownHeader.addEventListener('click', () => {
+        dropdownBody.classList.toggle('visible');
+    });
+
+    // Event listener for click events on the region filters
+    const regionFilters = document.querySelectorAll('.dropdown-body li');
+    regionFilters.forEach(filter => {
+        filter.addEventListener('click', () => {
+            const selectedRegion = filter.dataset.region;
+            const countries = document.querySelectorAll('.country');
+
+            countries.forEach(country => {
+                const countryRegion = country.dataset.region;
+                const shouldDisplay = selectedRegion === 'all' || countryRegion === selectedRegion;
+                country.style.display = shouldDisplay ? 'block' : 'none';
+            });
+        });
+    });
+
+    const themeToggle = document.querySelector('.theme-toggle');
+    const body = document.body;
+
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-theme');
+        const themeText = document.querySelector('.theme-text');
+        themeText.textContent = body.classList.contains('dark-theme') ? 'Light Mode' : 'Dark Mode';
     });
 });

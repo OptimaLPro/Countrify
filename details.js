@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     getBorderCountries = async (borderCodes) => {
         const borderNames = [];
 
-        console.log(borderCodes.length)
         if (borderCodes.length === 0) {
             return 'No border countries - This is an island!';
         }
@@ -26,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     throw new Error(`Failed to fetch data for ${code}`);
                 }
                 const data = await response.json();
-                console.log(data); // Log the entire data object
                 borderNames.push(data[0].name.common); // This line may cause the TypeError
             } catch (error) {
                 console.error(error);
@@ -56,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const currency = country.currencies;
             const firstCurrency = Object.values(currency)[0];
-            
+
             let borderCountries = '';
             if (country.borders && country.borders.length > 0) {
                 borderCountries = await getBorderCountries(country.borders);
@@ -96,4 +94,13 @@ document.addEventListener('DOMContentLoaded', () => {
             // Hide the loader after data is loaded or an error occurs
             loader.style.display = 'none';
         });
+
+    const themeToggle = document.querySelector('.theme-toggle');
+    const body = document.body;
+
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-theme');
+        const themeText = document.querySelector('.theme-text');
+        themeText.textContent = body.classList.contains('dark-theme') ? 'Light Mode' : 'Dark Mode';
+    });
 });

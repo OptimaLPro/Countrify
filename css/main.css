@@ -115,14 +115,30 @@
   transition: transform 0.2s linear;
 }
 
+.filters .dropdown-wrapper {
+  position: relative;
+  /* Ensure relative positioning for absolute children */
+}
+
 .filters .dropdown-body {
   position: absolute;
-  margin-top: 5px;
+  top: 100%; /* Position below the header */
+  left: 0;
+  width: 100%;
+  background-color: #fff; /* Add background color for visibility */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
   opacity: 0;
   visibility: hidden;
   z-index: 1;
   padding: 15px 0;
   transform: translateY(-20px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease; /* Add transitions for smooth animation */
+}
+
+.filters .dropdown-body.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .filters .dropdown-body li {
@@ -223,4 +239,3 @@
   text-transform: capitalize;
   margin-bottom: 15px;
 }
-

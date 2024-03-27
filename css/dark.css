@@ -1,0 +1,65 @@
+body.dark-theme {
+  background-color: hsl(207, 26%, 17%);
+  color: hsl(0, 0%, 100%);
+}
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4 {
+  color: hsl(0, 0%, 100%);
+}
+body.dark-theme .header {
+  background: hsl(209, 23%, 22%);
+}
+body.dark-theme .header .theme-toggle {
+  color: hsl(0, 0%, 100%);
+}
+body.dark-theme .filters .search-icon {
+  color: hsl(0, 0%, 100%);
+}
+body.dark-theme .filters .search-input {
+  color: hsl(0, 0%, 100%);
+  background-color: hsl(209, 23%, 22%);
+}
+body.dark-theme .filters .search-input::placeholder {
+  color: hsl(0, 0%, 100%);
+}
+body.dark-theme .filters .dropdown-header,
+body.dark-theme .filters .dropdown-body {
+  background: hsl(209, 23%, 22%);
+}
+body.dark-theme .filters .dropdown-body li:hover {
+  background-color: #354555;
+}
+body.dark-theme .countries-grid .country {
+  color: hsl(0, 0%, 100%);
+  background: hsl(209, 23%, 22%);
+}
+body.dark-theme .countries-grid .country span {
+  color: hsl(0, 0%, 100%);
+}
+body.dark-theme .loader {
+  background-color: hsl(207, 26%, 17%);
+}
+body.dark-theme .loader .spinner .icon {
+  color: hsl(0, 0%, 100%);
+}
+body.dark-theme .scroll-top {
+  background-color: hsl(209, 23%, 22%);
+}
+body.dark-theme .notifi-wrapper {
+  color: hsl(0, 0%, 100%);
+}
+body.dark-theme .btn {
+  background-color: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+body.dark-theme .country-info li {
+  color: hsl(0, 0%, 52%);
+}
+body.dark-theme .country-info strong {
+  color: hsl(0, 0%, 100%);
+}
+
+/*# sourceMappingURL=dark.css.map */
