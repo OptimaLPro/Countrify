@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const themeText = document.querySelector('.theme-text');
+    themeText.textContent = localStorage.getItem('darkTheme') === 'true' ? 'Light Mode' : 'Dark Mode';
+
+
     const countryDetailsContainer = document.querySelector('.main-info');
     const loader = document.querySelector('.loader');
 
@@ -104,13 +108,13 @@ document.addEventListener('DOMContentLoaded', () => {
         body.classList.add('dark-theme');
     }
 
+
+
     // Function to toggle the dark theme and update local storage
     const toggleDarkTheme = () => {
         body.classList.toggle('dark-theme');
-        const themeText = document.querySelector('.theme-text');
-        themeText.textContent = body.classList.contains('dark-theme') ? 'Light Mode' : 'Dark Mode';
+        themeText.textContent = localStorage.getItem('darkTheme') === 'true' ? 'Light Mode' : 'Dark Mode';
 
-        // Update theme preference in local storage
         localStorage.setItem('darkTheme', body.classList.contains('dark-theme'));
     };
 

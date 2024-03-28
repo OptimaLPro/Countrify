@@ -181,7 +181,7 @@ margin: auto;
 .div2 {
   grid-area: 1 / 3 / 2 / 5;
   display: flex;
-  margin-top: 10%;/* Align content to the end of div2 */
+  margin-top: 5%;/* Align content to the end of div2 */
 }
 
 

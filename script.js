@@ -1,7 +1,7 @@
 // Function to fetch and display countries
 const requestCountries = async () => {
     try {
-        const response = await fetch('https://restcountries.com/v3.1/all');
+        const response = await fetch('e');
         const data = await response.json();
 
         const countriesGrid = document.querySelector('.countries-grid');
@@ -50,14 +50,31 @@ const requestCountries = async () => {
 };
 
 // Initial request to fetch and display countries
-requestCountries();
-
-// Event listener for input events on the search input
 document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.querySelector('.search-input');
+    const themeText = document.querySelector('.theme-text');
+    themeText.textContent = localStorage.getItem('darkTheme') === 'true' ? 'Light Mode' : 'Dark Mode';
 
+    const searchInput = document.querySelector('.search-input');
+    const dropdownHeader = document.querySelector('.dropdown-header');
+    const dropdownBody = document.querySelector('.dropdown-body');
+    const regionFilters = document.querySelectorAll('.dropdown-body li');
+
+    // Function to close the dropdown and display the selected region
+    const closeDropdownAndDisplayRegion = (selectedRegion) => {
+        dropdownBody.classList.remove('visible');
+        dropdownHeader.textContent = `Filter by Region: ${selectedRegion}`;
+
+        const countries = document.querySelectorAll('.country');
+        countries.forEach(country => {
+            const countryRegion = country.dataset.region;
+            const shouldDisplay = selectedRegion === 'all' || countryRegion === selectedRegion;
+            country.style.display = shouldDisplay ? 'block' : 'none';
+        });
+    };
+
+    // Event listener for input events on the search input
     searchInput.addEventListener('input', () => {
-        const searchTerm = searchInput.value.trim().toLowerCase(); // Trim and convert to lowercase
+        const searchTerm = searchInput.value.trim().toLowerCase();
         const countries = document.querySelectorAll('.country');
 
         countries.forEach(country => {
@@ -67,25 +84,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const dropdownHeader = document.querySelector('.dropdown-header');
-    const dropdownBody = document.querySelector('.dropdown-body');
-
+    // Event listener for click events on the dropdown header
     dropdownHeader.addEventListener('click', () => {
         dropdownBody.classList.toggle('visible');
     });
 
     // Event listener for click events on the region filters
-    const regionFilters = document.querySelectorAll('.dropdown-body li');
     regionFilters.forEach(filter => {
         filter.addEventListener('click', () => {
             const selectedRegion = filter.dataset.region;
-            const countries = document.querySelectorAll('.country');
-
-            countries.forEach(country => {
-                const countryRegion = country.dataset.region;
-                const shouldDisplay = selectedRegion === 'all' || countryRegion === selectedRegion;
-                country.style.display = shouldDisplay ? 'block' : 'none';
-            });
+            searchInput.value = '';
+            closeDropdownAndDisplayRegion(selectedRegion);
         });
     });
 
@@ -110,4 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     themeToggle.addEventListener('click', toggleDarkTheme);
 
+    // Initial request to fetch and display countries
+    requestCountries();
 });
