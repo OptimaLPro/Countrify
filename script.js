@@ -19,7 +19,7 @@ const requestCountries = async () => {
             flagImg.alt = `${country.name.common} Flag`;
             countryFlag.appendChild(flagImg);
 
-            
+
 
             const countryInfo = document.createElement('div');
             countryInfo.classList.add('country-info');
@@ -111,6 +111,16 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     themeToggle.addEventListener('click', toggleDarkTheme);
+
+    const scrollTopButton = document.getElementById("scroll-top-btn");
+
+    scrollTopButton.addEventListener("click", function () {
+        // Smooth scroll to the top of the page
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
 
     requestCountries();
 });

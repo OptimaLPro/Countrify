@@ -1,5 +1,5 @@
 body {
-  font-size: 16px;
+  /* font-size: 16px; */
   font-family: 'Nunito Sans', sans-serif;
 }
 
@@ -214,4 +214,10 @@ body {
 
 .border-div {
   margin-top: 70px;
+}
+
+.header-icon-title{
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

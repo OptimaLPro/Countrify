@@ -258,3 +258,9 @@ body {
 .span-text{
   font-weight: 300;
 }
+
+.header-icon-title{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
