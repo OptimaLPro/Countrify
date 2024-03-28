@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const countryDetailsContainer = document.querySelector('.main-info');
     const loader = document.querySelector('.loader');
 
-    // Retrieve country name from query parameter
     const urlParams = new URLSearchParams(window.location.search);
     const countryName = urlParams.get('name');
 
@@ -29,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     throw new Error(`Failed to fetch data for ${code}`);
                 }
                 const data = await response.json();
-                borderNames.push(data[0].name.common); // This line may cause the TypeError
+                borderNames.push(data[0].name.common);
             } catch (error) {
                 console.error(error);
                 borderNames.push(`Error fetching data for ${code}`);
@@ -42,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return borderNames.join(", ");
     }
 
-    // Fetch country data based on the name
     fetch(`https://restcountries.com/v3.1/name/${encodeURIComponent(countryName)}`)
         .then(response => {
             if (!response.ok) {
@@ -51,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(async data => {
-            const country = data[0]; // Assuming the API returns data in an array
+            const country = data[0];
 
             const nativeNames = country.name.nativeName;
             const firstLanguage = Object.values(nativeNames)[0];
@@ -95,22 +93,17 @@ document.addEventListener('DOMContentLoaded', () => {
             countryDetailsContainer.innerHTML = '<p>Error loading country details</p>';
         })
         .finally(() => {
-            // Hide the loader after data is loaded or an error occurs
             loader.style.display = 'none';
         });
 
     const themeToggle = document.querySelector('.theme-toggle');
     const body = document.body;
 
-    // Check if the theme preference is stored in local storage
     const isDarkTheme = localStorage.getItem('darkTheme') === 'true';
     if (isDarkTheme) {
         body.classList.add('dark-theme');
     }
 
-
-
-    // Function to toggle the dark theme and update local storage
     const toggleDarkTheme = () => {
         body.classList.toggle('dark-theme');
         themeText.textContent = localStorage.getItem('darkTheme') === 'true' ? 'Light Mode' : 'Dark Mode';

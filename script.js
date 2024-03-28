@@ -1,7 +1,6 @@
-// Function to fetch and display countries
 const requestCountries = async () => {
     try {
-        const response = await fetch('e');
+        const response = await fetch('https://restcountries.com/v3.1/all');
         const data = await response.json();
 
         const countriesGrid = document.querySelector('.countries-grid');
@@ -49,7 +48,6 @@ const requestCountries = async () => {
     }
 };
 
-// Initial request to fetch and display countries
 document.addEventListener('DOMContentLoaded', () => {
     const themeText = document.querySelector('.theme-text');
     themeText.textContent = localStorage.getItem('darkTheme') === 'true' ? 'Light Mode' : 'Dark Mode';
@@ -59,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdownBody = document.querySelector('.dropdown-body');
     const regionFilters = document.querySelectorAll('.dropdown-body li');
 
-    // Function to close the dropdown and display the selected region
     const closeDropdownAndDisplayRegion = (selectedRegion) => {
         dropdownBody.classList.remove('visible');
         dropdownHeader.textContent = `Filter by Region: ${selectedRegion}`;
@@ -72,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // Event listener for input events on the search input
     searchInput.addEventListener('input', () => {
         const searchTerm = searchInput.value.trim().toLowerCase();
         const countries = document.querySelectorAll('.country');
@@ -84,12 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Event listener for click events on the dropdown header
     dropdownHeader.addEventListener('click', () => {
         dropdownBody.classList.toggle('visible');
     });
 
-    // Event listener for click events on the region filters
     regionFilters.forEach(filter => {
         filter.addEventListener('click', () => {
             const selectedRegion = filter.dataset.region;
@@ -101,24 +95,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.querySelector('.theme-toggle');
     const body = document.body;
 
-    // Check if the theme preference is stored in local storage
     const isDarkTheme = localStorage.getItem('darkTheme') === 'true';
     if (isDarkTheme) {
         body.classList.add('dark-theme');
     }
 
-    // Function to toggle the dark theme and update local storage
     const toggleDarkTheme = () => {
         body.classList.toggle('dark-theme');
         const themeText = document.querySelector('.theme-text');
         themeText.textContent = body.classList.contains('dark-theme') ? 'Light Mode' : 'Dark Mode';
 
-        // Update theme preference in local storage
         localStorage.setItem('darkTheme', body.classList.contains('dark-theme'));
     };
 
     themeToggle.addEventListener('click', toggleDarkTheme);
 
-    // Initial request to fetch and display countries
     requestCountries();
 });
