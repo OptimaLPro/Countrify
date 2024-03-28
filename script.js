@@ -19,8 +19,6 @@ const requestCountries = async () => {
             flagImg.alt = `${country.name.common} Flag`;
             countryFlag.appendChild(flagImg);
 
-
-
             const countryInfo = document.createElement('div');
             countryInfo.classList.add('country-info');
             const countryTitle = document.createElement('h2');
