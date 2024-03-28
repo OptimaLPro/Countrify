@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="div3">
                     <div class="div-span-info"><span class="span-info">Native Name: </span>${firstLanguage.official}</div>
-                    <div class="div-span-info"><span class="span-info">Population: </span>${country.population}</div>
+                    <div class="div-span-info"><span class="span-info">Population: </span>${country.population.toLocaleString()}</div>
                     <div class="div-span-info"><span class="span-info">Region: </span>${country.region}</div>
                     <div class="div-span-info"><span class="span-info">Sub Region: </span>${country.subregion}</div>
                     <div class="div-span-info"><span class="span-info">Capital: </span>${country.capital}</div>

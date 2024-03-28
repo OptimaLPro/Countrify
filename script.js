@@ -19,6 +19,8 @@ const requestCountries = async () => {
             flagImg.alt = `${country.name.common} Flag`;
             countryFlag.appendChild(flagImg);
 
+            
+
             const countryInfo = document.createElement('div');
             countryInfo.classList.add('country-info');
             const countryTitle = document.createElement('h2');
@@ -27,11 +29,11 @@ const requestCountries = async () => {
             const countryBrief = document.createElement('ul');
             countryBrief.classList.add('country-brief');
             const populationLi = document.createElement('li');
-            populationLi.innerHTML = `<strong>population:</strong> ${country.population}`;
+            populationLi.innerHTML = `<strong>population:</strong><span class="span-text"> ${country.population.toLocaleString()}</span>`;
             const regionLi = document.createElement('li');
-            regionLi.innerHTML = `<strong>Region:</strong> ${country.region}`;
+            regionLi.innerHTML = `<strong>Region:</strong><span class="span-text"> ${country.region}</span>`;
             const capitalLi = document.createElement('li');
-            capitalLi.innerHTML = `<strong>capital:</strong> ${country.capital}`;
+            capitalLi.innerHTML = `<strong>capital:</strong><span class="span-text"> ${country.capital}</span>`;
             countryBrief.appendChild(populationLi);
             countryBrief.appendChild(regionLi);
             countryBrief.appendChild(capitalLi);
