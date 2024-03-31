@@ -1,5 +1,5 @@
-    <h1>Countrify</h1>
-    <p><a href="https://countrify-gilt.vercel.app/">Live Demo: click here</a></p>
+<h1>Countrify</h1>
+<p><a href="https://countrify-gilt.vercel.app/">Live Demo: click here</a></p>
 
     <p>Countrify is a simple HTML project that leverages the REST Countries API to display countries of the world in a grid format. It includes features such as searching for specific countries, filtering countries by regions, and providing dynamic details for each country on a separate page. Additionally, the project supports a Dark Mode for enhanced user experience.</p>
 
