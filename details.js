@@ -67,24 +67,26 @@ document.addEventListener('DOMContentLoaded', () => {
             countryDetailsContainer.innerHTML = `
                 <div class="parent">
                 <div class="div1"><img src="${country.flags.svg}" alt="${country.name.common} Flag"/> </div>
-                <div class="div2">
-                    <h1>${country.name.common}</h1>
-                </div>
-                <div class="div3">
-                    <div class="div-span-info"><span class="span-info">Native Name: </span>${firstLanguage.official}</div>
-                    <div class="div-span-info"><span class="span-info">Population: </span>${country.population.toLocaleString()}</div>
-                    <div class="div-span-info"><span class="span-info">Region: </span>${country.region}</div>
-                    <div class="div-span-info"><span class="span-info">Sub Region: </span>${country.subregion}</div>
-                    <div class="div-span-info"><span class="span-info">Capital: </span>${country.capital}</div>
-                </div>
-                <div class="div4">
-                    <div class="div-span-info"><span class="span-info">Top Level Domain: </span>${country.tld}</div>
-                    <div class="div-span-info"><span class="span-info">Currencies: </span>${firstCurrency.name}</div>
-                    <div class="div-span-info"><span class="span-info">Languages: </span>${getLanguages(country.languages)}</div>
-                </div>
-                <div class="div5">
-                    <div class="border-div"><span class="span-info">Border countries: </span>${borderCountries}</div>
-                </div>
+                <div class="container-text">
+                    <div class="div2">
+                        <h1>${country.name.common}</h1>
+                    </div>
+                    <div class="div3">
+                        <div class="div-span-info"><span class="span-info">Native Name: </span>${firstLanguage.official}</div>
+                        <div class="div-span-info"><span class="span-info">Population: </span>${country.population.toLocaleString()}</div>
+                        <div class="div-span-info"><span class="span-info">Region: </span>${country.region}</div>
+                        <div class="div-span-info"><span class="span-info">Sub Region: </span>${country.subregion}</div>
+                        <div class="div-span-info"><span class="span-info">Capital: </span>${country.capital}</div>
+                    </div>
+                    <div class="div4">
+                        <div class="div-span-info"><span class="span-info">Top Level Domain: </span>${country.tld}</div>
+                        <div class="div-span-info"><span class="span-info">Currencies: </span>${firstCurrency.name}</div>
+                        <div class="div-span-info"><span class="span-info">Languages: </span>${getLanguages(country.languages)}</div>
+                    </div>
+                    <div class="div5">
+                        <div class="border-div"><span class="span-info">Border countries: </span>${borderCountries}</div>
+                    </div>
+                    </div>
                 </div>
             `;
         })
