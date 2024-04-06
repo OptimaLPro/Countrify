@@ -249,8 +249,8 @@ body {
 
 @media (max-width: 1000px) {
   .div1 img {
-    width: -webkit-fill-available;
-    height: -webkit-fill-available;
+    width: 100px;
+    height: 100px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.0);
     padding-right: 1.25rem;
     padding-left: 1.25rem;
