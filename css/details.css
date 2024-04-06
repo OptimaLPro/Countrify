@@ -241,6 +241,7 @@ body {
 
 @media (max-width: 767px) {
   .parent {
+    width: 100%;
     display: block;
     padding-left: 0px;
   }
@@ -273,5 +274,11 @@ body {
   .div2 {
     margin-top: 20px;
     margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .div5 {
+    margin-bottom: 50px;
   }
 }
